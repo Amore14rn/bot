@@ -1,0 +1,24 @@
+# IMPORTANT: Don't forget that hot reloads handlers in bot after any saving. Don't do the errors, or check logs after
+# We have three types of scanners:
+# liquidity - trigger by same tx doings
+# openTrading - trigger by same tx doings
+# pinkSale - trigger by pinksale address finalize (you need to add pinkSaleAddr if this scan type is used)
+# We can add all of this in the coin, but it can triggers couple times more
+
+pairs: # list of pairs just for help
+  wbnb: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+  busd: "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+  usdt: "0x55d398326f99059fF775485246999027B3197955"
+triggers: # list of triggers just for help
+  - "0xc0De17Bc2D2Da9ef1E3e9DA2E4254e8C6AA63F74"
+coins:
+  - name: "PHB" # For identification and selling
+    address: "0xFFfE7E7044453dD8005998F3f06792664C535b2A"
+    trigger: "0xc0De17Bc2D2Da9ef1E3e9DA2E4254e8C6AA63F74"
+    pair: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    minAmount: 10 # Liquidity in tokens which we buy
+    #pinkSaleAddr: ""
+    scanners:
+      - liquidity
+      #- pinkSale
+      #- openTrading
